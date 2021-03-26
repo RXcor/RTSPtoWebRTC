@@ -12,13 +12,21 @@ const pc = new RTCPeerConnection(config);
 pc.onnegotiationneeded = handleNegotiationNeededEvent;
 
 let log = msg => {
-  document.getElementById('div').innerHTML += msg + '<br>'
+  msg + '<br>'
 }
 
 pc.ontrack = function(event) {
   stream.addTrack(event.track);
   videoElem.srcObject = stream;
   log(event.streams.length + ' track is delivered')
+}
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var adaptive = url.searchParams.get("adaptive");
+console.log(`adaptive: ${adaptive}`);
+if (adaptive == 1){
+  document.getElementById("videoElem").classList.add('adaptive');
 }
 
 pc.oniceconnectionstatechange = e => log(pc.iceConnectionState)

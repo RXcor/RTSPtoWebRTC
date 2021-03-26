@@ -14,9 +14,10 @@
   <input type="hidden" name="port" id="port" value="{{ .port }}">
   <input type="hidden" id="localSessionDescription" readonly="true">
   <input type="hidden" id="remoteSessionDescription">
-  <div id="remoteVideos" style="background-color: black; important!">
-      <video style="width:100%; height: 100vh;" id="videoElem" style="background-color: black;" autoplay muted controls></video>
+  <div id="remoteVideos" style="background-color: white; important!">
+      <video id="videoElem" style="background-color: black;" autoplay muted controls></video>
   </div>
 
 <script type="text/javascript" src="../../static/js/app.js?ver={{ .version }}"></script>
+<link rel="stylesheet" href="../../static/css/app.css">
 </html>
